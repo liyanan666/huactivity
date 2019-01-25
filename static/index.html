@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{width: 100%;height: 100%;overflow: hidden;position: absolute;}
+        *{margin: 0;padding: 0;}
+        .mainimg{width: 100%;}
+        .finger{ position: absolute; top: 50%;left: 50%;width: 80px;margin-left: -40px;margin-top: 20px;animation: zoom 1s infinite alternate;}
+        @keyframes zoom{
+            0%{transform: scale(1)}
+            100%{transform: scale(.5)}
+        }
+        .show{display: block;}
+        .hide{display: none;}
+        .btn{position: absolute;width: 60%;left: 20%;bottom: -100px;transition: bottom 1s;}
+        .showsecond .btn{bottom: 20px;}
+    </style>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="second1">
+        <img class="mainimg" src="img/closedoor.jpg" alt="">
+        <img class="finger" src="img/finger.png" alt="">
+    </div>
+    <div class="second2 hide">
+        <img class="mainimg" src="img/opendoor.jpg" alt="">
+        <img class="btn" src="img/btn.png" alt="">
+    </div>
+    <script>
+        $(function(){
+            $(".finger").click(function(){
+                $(".second1").hide()
+                $(".second2").show();
+                $(".second2").addClass("showsecond");
+            })
+        })
+    </script>
+</body>
+</html>
