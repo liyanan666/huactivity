@@ -17,7 +17,7 @@ app.use('/',router)
 //静态文件
 app.use('/activity',express.static('./static'));
  
-var server = app.listen(8070,function () {
+var server = app.listen(8090,function () {
     var host = server.address().address;
     var port = server.address().port;
 

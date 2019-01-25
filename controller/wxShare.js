@@ -65,7 +65,7 @@ class wxShare {
 
         _this.upJsapiTicket(hrefURL, body.access_token, callback) 
 
-      } 
+      }
 
     }); 
 
