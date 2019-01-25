@@ -1,5 +1,6 @@
 let express = require("express");
 let app = express();
+let router = require('./router/index.js')
 
 
 app.all('*', function(req, res, next) {
@@ -11,18 +12,14 @@ app.all('*', function(req, res, next) {
     if(req.method=="OPTIONS") res.send(200);/*让options请求快速返回*/
     else  next();
 });
-
-//接口
+app.use('/',router)
 
 //静态文件
-app.use('/',express.static('./static'));
+app.use('/activity',express.static('./static'));
  
-app.use(express.query());
-//node --inspect app.js
-
 var server = app.listen(8070,function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    console.log('Example app listening at http://127.0.0.1:8070');
 });

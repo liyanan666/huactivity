@@ -10,7 +10,7 @@ let config = {
 
     appID: "wxeb25734e81129a7d",// 微信公众号ID 
 
-    appSecret: "" //微信公众号里有 
+    appSecret: "d93d45e694934e7e0d21458f7e0cc442" //微信公众号里有 
 
   }, 
 
@@ -51,13 +51,12 @@ class wxShare {
    */
 
   accessToken(hrefURL, callback) { // 获取access_token 
-
     let _this = this; 
 
     var tokenUrl = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + config.appID + '&secret=' + config.appSecret; 
 
     request(tokenUrl, function(error, response, body) { 
-
+      console.log(body)
       if (response.statusCode && response.statusCode === 200) { 
 
         body = JSON.parse(body); 
@@ -208,4 +207,4 @@ class wxShare {
 
 } 
 
-module.exports = wxShare;
+module.exports = new wxShare();
